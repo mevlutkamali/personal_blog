@@ -206,3 +206,40 @@ section{
 .socials i:hover{
     transform: scale(1.1);
 }
+
+.section-title{
+    font-weight: 600;
+    font-size: 3.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.experience-info{
+    gap: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.experience img{
+    width: 25vw;
+    border-radius: 3rem;
+}
+
+.grid{
+    gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.grid-card{
+    display: flex;
+    padding: 3rem;
+    border-radius: 3rem;
+    border: 2px solid black;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: left;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
