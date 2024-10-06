@@ -5,9 +5,9 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    scroll-behavior: none;
+    scroll-behavior: smooth; /* 'none' geçerli bir değer değil */
     list-style: none;
-    /* font-family: 'Poppins'; */
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -35,7 +35,7 @@ header{
     color: white;
     font-weight: 600;
     font-size: 1.3rem;
-    text-wrap: nowrap;
+    white-space: nowrap; /* 'text-wrap: nowrap' yerine */
     transition: 0.3s ease-in-out;
 }
 
@@ -78,14 +78,14 @@ li a:hover::before{
     color: white;
     border: none;
     cursor: pointer;
-    text-wrap: nowrap;
+    white-space: nowrap; /* 'text-wrap: nowrap' yerine */
     transition: 0.3s ease-in-out;
     background: linear-gradient(to right, rgba(0, 157, 255), rgba(255, 0, 255));
 }
 
 .visit-btn:hover{
     transform: scale(1.03);
-    background: linear-gradient(to right, rgba(0, 157, 255), rgba(255, 0, 255));
+    /* Arka plan gradyanı zaten aynı, gerek yok */
 }
 
 #menu-ikons{
@@ -169,6 +169,7 @@ section{
     background: linear-gradient(to right, rgba(0, 157, 255), rgba(255, 0, 255));
     color: transparent;
     background-clip: text;
+    -webkit-background-clip: text; /* Safari için */
     font-size: 2rem;
 }
 
@@ -180,7 +181,7 @@ section{
 .btn{
     cursor: pointer;
     font-weight: 500;
-    text-wrap: nowrap;
+    white-space: nowrap; /* 'text-wrap: nowrap' yerine */
     border-radius: 3rem;
     padding: 0.5rem 1.5rem;
     border: 2px solid black;
@@ -195,12 +196,14 @@ section{
 .socials{
     gap: 2rem;
     display: flex;
+    color: black;
 }
 
 .socials i{
     font-size: 2.5rem;
     cursor: pointer;
     transition: 0.2s ease-in-out;
+    color: black;
 }
 
 .socials i:hover{
@@ -215,21 +218,18 @@ section{
 }
 
 .experience-info{
-    gap: 5rem;
     display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.experience img{
-    width: 25vw;
-    border-radius: 3rem;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
 }
 
 .grid{
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
+    flex: 1;
 }
 
 .grid-card{
@@ -238,8 +238,46 @@ section{
     border-radius: 3rem;
     border: 2px solid black;
     flex-direction: column;
-    align-items: baseline;
-    justify-content: left;
+    align-items: flex-start; /* 'baseline' yerine daha uygun */
+    justify-content: flex-start; /* 'left' yerine daha uygun */
     cursor: pointer;
     transition: 0.2s ease-in-out;
+}
+
+.grid-card:hover{
+    color: white;
+    background-color: black;
+    transform: scale(1.2); /* Hata düzeltildi */
+}
+
+.grid-card i{
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.grid-card span{
+    font-weight: 300;
+    font-size: 1.3rem;
+    -webkit-background-clip: text; /* Safari için */
+    background: linear-gradient(to right, #009dff, #ff00ff);
+    background-clip: text;
+    color: transparent;
+}
+
+.experience img{
+    width: 40%;
+    max-width: 400px;
+    border-radius: 3rem;
+}
+
+::-webkit-scrollbar{
+    width: 20;
+}
+
+::-webkit-scrollbar-track{
+    background-color: rgb(219, 219, 219);
+}
+
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(to right, #009dff, #ff00ff);
 }
