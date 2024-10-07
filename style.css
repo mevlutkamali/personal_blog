@@ -225,43 +225,49 @@ section{
     gap: 2rem;
 }
 
-.grid{
+.about-blm2{
+    width: 100%;
+    height: 930px;
+    padding-top: 300px;
+}
+
+.about-blm2 img{
+    width: 420px;
+    height: auto;
+}
+
+.about-text{
+    width: 550px;
+    margin-left: 30px;
+}
+
+.main{
+    margin: 0 auto;
+    width: 1130px;
+    max-width: 95%;
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    flex: 1;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.grid-card{
-    display: flex;
-    padding: 3rem;
-    border-radius: 3rem;
-    border: 2px solid black;
-    flex-direction: column;
-    align-items: flex-start; /* 'baseline' yerine daha uygun */
-    justify-content: flex-start; /* 'left' yerine daha uygun */
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
+.about-text h1{
+    font-size: 60px;
+    margin-bottom: 20px;
+    text-transform: capitalize;
 }
 
-.grid-card:hover{
-    color: white;
-    background-color: black;
-    transform: scale(1.2); /* Hata düzeltildi */
+.about-text h5{
+    font-size: 25px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
 }
 
-.grid-card i{
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-}
-
-.grid-card span{
-    font-weight: 300;
-    font-size: 1.3rem;
-    -webkit-background-clip: text; /* Safari için */
-    background: linear-gradient(to right, #009dff, #ff00ff);
-    background-clip: text;
-    color: transparent;
+.about-text p{
+    font-size: 18px;
+    margin-bottom: 45px;
+    line-height: 28px;
+    letter-spacing: 1px;
 }
 
 .experience img{
