@@ -5,6 +5,10 @@
     --skills-title: #ff8500;
     --gradient-start: #ff8500;
     --gradient-end: #eb1254;
+    --bg-light: #f5f5f5;
+    --bg-dark: #222831;
+    --text-light: #222831;
+    --text-dark: #f0f0f0;
 }
 
 * {
@@ -14,8 +18,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
-html, body {
-    background-color: #f5f5f5;
+body {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    transition: background-color 0.3s, color 0.3s;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -23,11 +29,14 @@ html, body {
     padding: 20px;
 }
 
+body.dark-mode {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
 .container {
     width: 100%;
     max-width: 1400px;
-    padding: 20px;
-    position: relative;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -35,15 +44,12 @@ html, body {
 }
 
 .portfolio {
-    width: 100%;
     max-width: 350px;
     text-align: center;
 }
 
 .roundImage {
     width: 100%;
-    max-width: 350px;
-    height: auto;
     border-radius: 50%;
     border: 1px solid black;
     object-fit: cover;
@@ -60,25 +66,20 @@ html, body {
 }
 
 .navBar {
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
-    background-color: #3D3D3D;
+    background-color: #3d3d3d;
+    color: white;
     padding: 15px 20px;
     border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    color: whitesmoke;
     margin-bottom: 20px;
-    overflow: hidden;
-    text-align: center;
 }
 
 .navBar a {
     color: whitesmoke;
     text-decoration: none;
-    transition: color 0.3s;
     font-size: 16px;
 }
 
@@ -87,24 +88,66 @@ html, body {
 }
 
 .contentSection {
-    background-color: #fff;
+    background-color: white;
     padding: 20px 40px;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    overflow-y: auto;
-    max-height: calc(100vh - 120px);
-    margin-bottom: 20px;
+}
+
+body.dark-mode .contentSection {
+    background-color: #2e2e2e;
 }
 
 .socials {
-    margin: 10px 0;
+    display: flex;
+    justify-content: flex-start;  /* Sol hizalama */
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
 }
+
+.socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    font-size: 1.4rem;
+    background-color: #fff;
+    color: #333;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.socials a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Platformlara özel renkler */
+.socials a:nth-child(1):hover { background-color: #333; color: white; }       /* GitHub */
+.socials a:nth-child(2):hover { background-color: #0a66c2; color: white; }    /* LinkedIn */
+.socials a:nth-child(3):hover { background-color: #e1306c; color: white; }    /* Instagram */
+
+/* Dark mode desteği */
+body.dark-mode .socials a {
+    background-color: #2b2b2b;
+    color: #eee;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+}
+
 
 .socials a {
     margin-right: 10px;
     font-size: 1.2rem;
     color: #333;
     transition: 0.3s;
+}
+
+body.dark-mode .socials a {
+    color: #ddd;
 }
 
 .socials a:hover {
@@ -133,9 +176,8 @@ html, body {
 
 .heading {
     font-size: 18px;
-    font-weight: 500;
-    display: block;
     margin-bottom: 8px;
+    display: block;
 }
 
 .skillBar {
@@ -162,6 +204,7 @@ html, body {
 .python { width: 70%; animation-name: python; }
 .javaScript { width: 40%; animation-name: js; }
 .linux { width: 80%; animation-name: linux; }
+.istek { width: 100%; animation-name: istek; }
 
 @keyframes html { from { width: 10%; } to { width: 65%; } }
 @keyframes css { from { width: 10%; } to { width: 45%; } }
@@ -169,14 +212,36 @@ html, body {
 @keyframes python { from { width: 10%; } to { width: 70%; } }
 @keyframes js { from { width: 10%; } to { width: 40%; } }
 @keyframes linux { from { width: 10%; } to { width: 80%; } }
+@keyframes istek { from { width: 10%; } to { width: 100%; } }
 
-/* Responsive Tasarım */
+/* Dark mode butonu */
+.dark-toggle {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 48px;
+    height: 48px;
+    background-color: #3d3d3d;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 999;
+    transition: background 0.3s;
+}
+
+.dark-toggle:hover {
+    background-color: #555;
+}
+
+/* Mobil uyum */
 @media screen and (max-width: 768px) {
-    html, body {
+    body {
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        overflow: auto;
     }
 
     .container {
