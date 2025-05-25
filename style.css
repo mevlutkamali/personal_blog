@@ -67,24 +67,45 @@ body.dark-mode {
 
 .navBar {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
+    align-items: center;
+    justify-content: space-between; /* Başlık sola, linkler sağa */
     background-color: #3d3d3d;
     color: white;
     padding: 15px 20px;
     border-radius: 10px;
     margin-bottom: 20px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+/* Linkleri saran kapsayıcı ekleyelim (örnek: .navLinks) */
+.navLinks {
+    display: flex;
+    gap: 20px;
+}
+
+
+.navBar h2 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.2rem;
+    flex-shrink: 0;
 }
 
 .navBar a {
     color: whitesmoke;
     text-decoration: none;
     font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.3s, color 0.3s;
+    flex-shrink: 0;
 }
 
 .navBar a:hover {
     color: #f0c674;
+    background-color: #555;
 }
 
 .contentSection {
@@ -100,7 +121,7 @@ body.dark-mode .contentSection {
 
 .socials {
     display: flex;
-    justify-content: flex-start;  /* Sol hizalama */
+    justify-content: flex-start;
     align-items: center;
     gap: 15px;
     margin: 20px 0;
@@ -126,32 +147,14 @@ body.dark-mode .contentSection {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
 
-/* Platformlara özel renkler */
-.socials a:nth-child(1):hover { background-color: #333; color: white; }       /* GitHub */
-.socials a:nth-child(2):hover { background-color: #0a66c2; color: white; }    /* LinkedIn */
-.socials a:nth-child(3):hover { background-color: #e1306c; color: white; }    /* Instagram */
+.socials a:nth-child(1):hover { background-color: #333; color: white; }
+.socials a:nth-child(2):hover { background-color: #0a66c2; color: white; }
+.socials a:nth-child(3):hover { background-color: #e1306c; color: white; }
 
-/* Dark mode desteği */
 body.dark-mode .socials a {
     background-color: #2b2b2b;
     color: #eee;
     box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
-}
-
-
-.socials a {
-    margin-right: 10px;
-    font-size: 1.2rem;
-    color: #333;
-    transition: 0.3s;
-}
-
-body.dark-mode .socials a {
-    color: #ddd;
-}
-
-.socials a:hover {
-    color: var(--skills-title);
 }
 
 .talents {
@@ -217,8 +220,8 @@ body.dark-mode .socials a {
 /* Dark mode butonu */
 .dark-toggle {
     position: fixed;
-    bottom: 30px;
-    left: 30px;
+    left: 2rem;
+    bottom: 2rem;
     width: 48px;
     height: 48px;
     background-color: #3d3d3d;
@@ -236,7 +239,7 @@ body.dark-mode .socials a {
     background-color: #555;
 }
 
-/* Mobil uyum */
+/* Responsive */
 @media screen and (max-width: 768px) {
     body {
         flex-direction: column;
@@ -257,9 +260,10 @@ body.dark-mode .socials a {
     }
 
     .navBar {
-        flex-direction: column;
-        gap: 10px;
         padding: 10px;
+        gap: 15px;
+        overflow-x: auto;
+        white-space: nowrap;
     }
 
     .navBar h2 {
@@ -279,3 +283,23 @@ body.dark-mode .socials a {
         font-size: 16px;
     }
 }
+
+/* Giriş animasyonu */
+.fade-slide-up {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeSlideUp 1s ease-out forwards;
+}
+
+@keyframes fadeSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-slide-up.delay-1 { animation-delay: 0.2s; }
+.fade-slide-up.delay-2 { animation-delay: 0.4s; }
+.fade-slide-up.delay-3 { animation-delay: 0.6s; }
+.fade-slide-up.delay-4 { animation-delay: 0.8s; }
+.fade-slide-up.delay-5 { animation-delay: 1s; }
