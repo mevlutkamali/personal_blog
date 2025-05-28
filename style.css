@@ -148,8 +148,10 @@ body.dark-mode .contentSection {
 }
 
 .socials a:nth-child(1):hover { background-color: #333; color: white; }
-.socials a:nth-child(2):hover { background-color: #0a66c2; color: white; }
-.socials a:nth-child(3):hover { background-color: #e1306c; color: white; }
+.socials a:nth-child(2):hover { background-color: #989191; color: white; }
+.socials a:nth-child(3):hover { background-color: #0a66c2; color: white; }
+.socials a:nth-child(4):hover { background-color: #A71732; color: white; }
+.socials a:nth-child(5):hover { background-color: #e1306c; color: white; }
 
 body.dark-mode .socials a {
     background-color: #2b2b2b;
