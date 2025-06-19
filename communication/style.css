@@ -1,21 +1,156 @@
-/* Ana sayfadaki stil dosyasını kullandığın için sadece ek özelleştirmeler */
-
-.contentSection h2 {
-    font-size: 28px;
-    font-weight: 600;
-    color: var(--skills-title);
-    margin-bottom: 25px;
+:root {
+    --skills-title: #ff8500;
+    --gradient-start: #ff8500;
+    --gradient-end: #eb1254;
+    --bg-light: #f5f5f5;
+    --bg-dark: #222831;
+    --text-light: #222831;
+    --text-dark: #f0f0f0;
+    --input-bg-light: #ffffff;
+    --input-bg-dark: #2e2e2e;
 }
 
-button[type="submit"] {
-    padding: 10px 30px;
+/* Genel yapı */
+body {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    padding: 30px 10px;
+    min-height: 100vh;
+}
+
+body.dark-mode {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+.navBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Başlık sola, linkler sağa */
+    background-color: #3d3d3d;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.navLinks {
+    display: flex;
+    gap: 20px;
+}
+
+
+.navBar h2 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.navBar a {
+    color: whitesmoke;
+    text-decoration: none;
     font-size: 16px;
-    border-radius: 8px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.3s, color 0.3s;
+    flex-shrink: 0;
+}
+
+.navBar a:hover {
+    color: #f0c674;
+    background-color: #555;
+}
+
+/* Form alanı */
+.form-wrapper {
+    background-color: white;
+    padding: 40px;
+    border-radius: 16px;
+    max-width: 900px;
+    margin: auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.3s;
+}
+
+body.dark-mode .form-wrapper {
+    background-color: #2e2e2e;
+}
+
+/* Başlık */
+h2 {
+    text-align: center;
+    color: var(--skills-title);
+    margin-bottom: 30px;
+}
+
+/* Etiket */
+label {
+    font-weight: 500;
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* Giriş alanları */
+.form-control {
+    background-color: var(--input-bg-light);
+    border: 1px solid #ccc;
+    color: var(--text-light);
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 15px;
+    transition: all 0.3s;
+}
+
+body.dark-mode .form-control {
+    background-color: var(--input-bg-dark);
+    color: var(--text-dark);
+    border: 1px solid #555;
+}
+
+/* Gönder butonu */
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--skills-title);
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    color: white;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #e17000;
+}
+
+/* Radyo butonlar */
+.form-check-input:checked {
+    background-color: var(--skills-title);
+    border-color: var(--skills-title);
+}
+
+/* Link */
+a {
+    color: var(--skills-title);
+    text-decoration: underline;
 }
 
 /* Responsive */
-@media screen and (max-width: 768px) {
-    .contentSection {
-        padding: 20px;
+@media (max-width: 768px) {
+    .navBar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .form-wrapper {
+        padding: 25px;
+        margin: 20px;
     }
 }
